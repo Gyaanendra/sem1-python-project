@@ -1,0 +1,187 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    ></meta>
+    <title>Profile - BookStore</title>
+    <link rel="stylesheet" href="styles.css"></link>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    ></link>
+  </head>
+  <body>
+    {/* <!-- Navigation (as above) --> */}
+ <!-- Updated Navigation for all pages -->
+ <nav class="main-nav">
+   <div class="nav-container">
+     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+       <i class="fas fa-bars"></i>
+     </button>
+
+     <div class="nav-links" id="nav-links">
+       <a href="index.html" class="nav-link">
+         <i class="fas fa-home"></i> Home
+       </a>
+       <a href="books.html" class="nav-link">
+         <i class="fas fa-book"></i> Books
+       </a>
+       <a href="about.html" class="nav-link">
+         <i class="fas fa-info-circle"></i> About
+       </a>
+       <a href="contact.html" class="nav-link">
+         <i class="fas fa-envelope"></i> Contact
+       </a>
+     </div>
+
+     <div class="nav-auth" id="nav-auth">
+       <button id="login-button" class="auth-btn" onclick="showLogin()">
+         <i class="fas fa-sign-in-alt"></i> Login
+       </button>
+       <button id="signup-button" class="auth-btn" onclick="showSignup()">
+         <i class="fas fa-user-plus"></i> Sign Up
+       </button>
+       <div class="user-info" style="display: none">
+         <div class="user-dropdown">
+           <button class="dropdown-btn" onclick="toggleDropdown()">
+             <img id="user-avatar" src="default-avatar.png" alt="User" />
+             <span id="user-name"></span>
+             <i class="fas fa-chevron-down"></i>
+           </button>
+           <div class="dropdown-content" id="user-dropdown">
+             <a href="profile.html"> <i class="fas fa-user"></i> Profile </a>
+             <a href="settings.html">
+               <i class="fas fa-cog"></i> Settings
+             </a>
+             <a href="#" onclick="logout()">
+               <i class="fas fa-sign-out-alt"></i> Logout
+             </a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </nav>
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="profile-cover">
+          <button class="edit-cover-btn">
+            <i class="fas fa-camera"></i> Change Coverg
+          </button>
+        </div>
+        <div class="profile-info-header">
+          <div class="profile-avatar-wrapper">
+            <img
+              id="profile-avatar"
+              src="default-avatar.png"
+              alt="Profile Picture"
+            ></img>
+            <button class="edit-avatar-btn">
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+          <div class="profile-basic-info">
+            <h1 id="profile-full-name">John Doe</h1>
+            <p id="profile-email">john@example.com</p>
+            <button class="edit-profile-btn" onclick="showEditProfileModal()">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-sidebar">
+          <div class="profile-stats">
+            <h3>Reading Stats</h3>
+            <div class="stats-list">
+              <div class="stat-item">
+                <i class="fas fa-book-reader"></i>
+                <div class="stat-info">
+                  <span class="stat-number">42</span>
+                  <span class="stat-label">Books Read</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-bookmark"></i>
+                <div class="stat-info">
+                  <span class="stat-number">12</span>
+                  <span class="stat-label">Reading Now</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-list"></i>
+                <div class="stat-info">
+                  <span class="stat-number">28</span>
+                  <span class="stat-label">Want to Read</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-badges">
+            <h3>Achievements</h3>
+            <div class="badges-grid">
+              {/* <!-- Badges will be added dynamically --> */}
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-main">
+          <div class="profile-section">
+            <h2>Currently Reading</h2>
+            <div class="books-grid" id="current-books">
+              {/* <!-- Current books will be added dynamically --> */}
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-feed" id="activity-feed">
+              {/* <!-- Activity items will be added dynamically --> */}
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h2>My Reviews</h2>
+            <div class="reviews-list" id="user-reviews">
+              {/* <!-- Reviews will be added dynamically --> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* <!-- Edit Profile Modal --> */}
+    <div id="edit-profile-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="hideEditProfileModal()">
+          &times;
+        </span>
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form" onsubmit="handleProfileUpdate(event)">
+          <div class="form-group">
+            <label for="edit-firstname">First Name</label>
+            <input type="text" id="edit-firstname" required></input>
+          </div>
+          <div class="form-group">
+            <label for="edit-lastname">Last Name</label>
+            <input type="text" id="edit-lastname" required></input>
+          </div>
+          <div class="form-group">
+            <label for="edit-bio">Bio</label>
+            <textarea id="edit-bio" rows="4"></textarea>
+          </div>
+          <button type="submit" class="auth-button">
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>;

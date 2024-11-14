@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Management System - Books</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Updated Navigation for all pages -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="books.html" class="nav-link">
+            <i class="fas fa-book"></i> Books
+          </a>
+          <a href="about.html" class="nav-link">
+            <i class="fas fa-info-circle"></i> About
+          </a>
+          <a href="contact.html" class="nav-link">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </div>
+
+        <div class="nav-auth" id="nav-auth">
+          <button id="login-button" class="auth-btn" onclick="showLogin()">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          <button id="signup-button" class="auth-btn" onclick="showSignup()">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+          <div class="user-info" style="display: none">
+            <div class="user-dropdown">
+              <button class="dropdown-btn" onclick="toggleDropdown()">
+                <img id="user-avatar" src="default-avatar.png" alt="User" />
+                <span id="user-name"></span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-content" id="user-dropdown">
+                <a href="profile.html"> <i class="fas fa-user"></i> Profile </a>
+                <a href="settings.html">
+                  <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="search-section">
+      <input type="text" id="search-input" placeholder="Search books..." />
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <!-- Categories will be dynamically added -->
+      </select>
+    </div>
+
+    <div class="books-grid" id="books-container">
+      <!-- Books will be dynamically added here -->
+    </div>
+    <div id="modal-container"></div>
+    <script src="auth.js"></script>
+    <script src="books.js"></script>
+  </body>
+</html>

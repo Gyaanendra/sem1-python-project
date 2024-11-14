@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Management System - Contact</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Updated Navigation for all pages -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="books.html" class="nav-link">
+            <i class="fas fa-book"></i> Books
+          </a>
+          <a href="about.html" class="nav-link">
+            <i class="fas fa-info-circle"></i> About
+          </a>
+          <a href="contact.html" class="nav-link">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </div>
+
+        <div class="nav-auth" id="nav-auth">
+          <button id="login-button" class="auth-btn" onclick="showLogin()">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          <button id="signup-button" class="auth-btn" onclick="showSignup()">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+          <div class="user-info" style="display: none">
+            <div class="user-dropdown">
+              <button class="dropdown-btn" onclick="toggleDropdown()">
+                <img id="user-avatar" src="default-avatar.png" alt="User" />
+                <span id="user-name"></span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-content" id="user-dropdown">
+                <a href="profile.html"> <i class="fas fa-user"></i> Profile </a>
+                <a href="settings.html">
+                  <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Email: contact@bookmanagement.com</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Address: 123 Book Street, Library City, BC 12345</p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>
